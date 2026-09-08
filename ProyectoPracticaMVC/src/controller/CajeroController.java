@@ -35,7 +35,7 @@ public class CajeroController {
                     vista.mostrarMensaje("Saldo actual: $" + cuentaActual.getSaldo());break;
 
                 case 2:
-                    cantidad = vista.solicitarCantidad();
+                    cantidad = vista.solicitarCantidad("depositar");
                     if (cantidad > 0) {
                         cuentaActual.depositar(cantidad);
                         vista.mostrarMensaje("Depósito exitoso.");
@@ -46,7 +46,7 @@ public class CajeroController {
                     break;
 
                 case 3:
-                    cantidad = vista.solicitarCantidad();
+                    cantidad = vista.solicitarCantidad("retirar");
                     vista.mostrarMensaje("Cantidad a retirar: $");
                     if (cantidad <= 0) {
                         vista.mostrarMensaje("Error: la cantidad debe ser mayor a $0.");

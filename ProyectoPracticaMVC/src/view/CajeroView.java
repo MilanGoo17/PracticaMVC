@@ -31,7 +31,7 @@ public class CajeroView {
         System.out.println("Seleccione una opcion: ");
         return scanner.nextInt();
     }
-    public double solicitarCantidad(){
+    public double solicitarCantidad(String tipoOperacion){
         System.out.println("Cantidad a " + tipoOperacion + " $: ");
         return scanner.nextDouble();
     }
