@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class CajeroView {
     private Scanner scanner;
 
-    public void CajeroView(){
-        Scanner scanner = new Scanner(System.in);
+    public CajeroView()
+    {
+        scanner = new Scanner(System.in);
     }
-    public String solicitarNumeroCuent(){
+    public String solicitarNumeroCuenta(){
         System.out.println("===== CAJERO AUTOMATICO =====");
         System.out.println("Ingrese su numero de cuenta: " );
         return scanner.nextLine();

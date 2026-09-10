@@ -20,8 +20,27 @@ public class CajeroController {
         cuentas.add(new Cuenta("1003", "Pedro García", 3200));
         cuentas.add(new Cuenta("1004", "Ana Martínez", 12000));
     }
-    public void iniciar(){
+    public void iniciar() {
+        String numeroCuenta = vista.solicitarNumeroCuenta();
+        cuentaActual = buscarCuenta(numeroCuenta);
 
+        if (cuentaActual == null) {
+            vista.mostrarMensaje("Error: la cuenta no existe.");
+            vista.cerrarScanner();
+            return;
+        }
+
+        vista.mostrarBienvenida(cuentaActual.getTitular(), cuentaActual.getNumeroCuenta());
+        procesarMenu();
+    }
+
+    private Cuenta buscarCuenta(String numeroCuenta) {
+        for (Cuenta cuenta : cuentas) {
+            if (cuenta.getNumeroCuenta().equals(numeroCuenta)) {
+                return cuenta;
+            }
+        }
+        return null;
     }
 
     private void procesarMenu(){
